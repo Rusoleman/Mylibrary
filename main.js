@@ -94,9 +94,8 @@ let printFindIndex = lib.findInx(names,(nameInd) => nameInd == 'Hans');
 let printFilter = lib.Filter(ages, (Age) => Age > 2);
 let printContains = lib.contains(users,[{name: 'moe', age: 40}]);
 let printWhitout = lib.whithOut(names, 'Martin');
-let wo = lib.pluck(users, 2);
-//let cont=lib.contains(ages);
-console.log(wo);
+let printPluck = lib.pluck(users, 2);
+
 console.log(printFind);
 console.log(printMap);
 console.log(printFindIndex);
@@ -104,4 +103,4 @@ let printForeach = lib.Foreach(ages, (ageList) => console.log(ageList));
 console.log(printFilter);
 console.log(printContains);
 console.log(printWhitout);
-
+console.log(printPluck);
