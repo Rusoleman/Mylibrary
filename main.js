@@ -36,6 +36,7 @@ const lib={
                 reqData.push(array[i]);
             }
         }
+        return reqData;
     },
     contains:(array, value) => {
         const type = Array.isArray(value);
@@ -62,11 +63,11 @@ const lib={
             }
         }
     },
-    pluck:(array) => {
+    pluck:(array,index) => {
         let newArr=[];
         for(let i=0; i<array.length; i++){
-            if(array[i].i ){
-                newArr.push(array[i].i);
+            if(i == index){
+                newArr.push(array[index]);
             }
         }
         return newArr;
@@ -83,8 +84,24 @@ const lib={
 };
 
 let users = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+let names = ['Peter', 'Erick', 'Hans', 'Martin'];
 const ages=[1,2,3,4,6,9];
-let wo = lib.contains(ages, 5);
+
+let printFind = lib.Find(ages, (age) => age > 4);
+let printMap = lib.Map(ages, (number) => number * 2);
+let printFindIndex = lib.findInx(names,(nameInd) => nameInd == 'Hans');
+
+let printFilter = lib.Filter(ages, (Age) => Age > 2);
+let printContains = lib.contains(users,[{name: 'moe', age: 40}]);
+let printWhitout = lib.whithOut(names, 'Martin');
+let wo = lib.pluck(users, 2);
 //let cont=lib.contains(ages);
 console.log(wo);
+console.log(printFind);
+console.log(printMap);
+console.log(printFindIndex);
+let printForeach = lib.Foreach(ages, (ageList) => console.log(ageList));
+console.log(printFilter);
+console.log(printContains);
+console.log(printWhitout);
 
