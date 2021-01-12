@@ -63,11 +63,11 @@ const lib={
             }
         }
     },
-    pluck:(array,index) => {
+    pluck:(array,property) => {
         let newArr=[];
         for(let i=0; i<array.length; i++){
-            if(i == index){
-                newArr.push(array[index]);
+            if(array[i][property]){
+                newArr.push(array[i][property]);
             }
         }
         return newArr;
@@ -94,7 +94,7 @@ let printFindIndex = lib.findInx(names,(nameInd) => nameInd == 'Hans');
 let printFilter = lib.Filter(ages, (Age) => Age > 2);
 let printContains = lib.contains(users,[{name: 'moe', age: 40}]);
 let printWhitout = lib.whithOut(names, 'Martin');
-let printPluck = lib.pluck(users, 2);
+let printPluck = lib.pluck(users,'name');
 
 console.log(printFind);
 console.log(printMap);
